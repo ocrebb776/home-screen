@@ -1,4 +1,5 @@
 <html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <style>
     .container {
         max-width: 100vw;
@@ -37,21 +38,61 @@
         background-image: url('images/google.svg');
         background-size: 80%;
     }
+    
+    .e {
+        background-image: url('images/email.svg');
+    }
+    
+    h1 {
+        text-align: center;
+        margin: auto;
+        display: grid;
+        grid-template-rows: 1fr 4fr 1fr;
+        height: 100%;
+    }
+    
+    body {
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+    }
+    
+    input,
+    button {
+        font-size: 40px;
+    }
 </style>
-<title>hello</title>
+<title>home</title>
 
 <body>
+    <div></div>
+    <h1> Link Selector
+        <div>
+
+        </div>
+        <div><input name="search" id="s"><button onclick="search()">^-oo-^</button> </div>
+    </h1>
     <div class="container ">
-        <div onclick="youtube()" class="button y"></div>
-        <div class="button t"></div>
-        <div class="button g"></div>
-        <div class="button"> gmail</div>
+        <div onclick="link('youtube')" class="button y"></div>
+        <div onclick="link('twitter')" class="button t"></div>
+        <div onclick="link('google')" class="button g"></div>
+        <div onclick="link('gmail')" class="button e"> </div>
     </div>
 </body>
 <script>
-    function youtube() {
-        window.location.href = "https://www.youtube.com/"
+    function link(site) {
+        window.location.href = `https://www.${site}.com/`
     }
+
+    function search() {
+        let query = document.getElementById('s').value
+        location.href = 'https://www.google.com/search?q=' + query.replace('+', '%2B%')
+    }
+
+    $("#s").on('keyup', function(e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            search()
+        }
+    });
 </script>
 
 </html>
