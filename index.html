@@ -1,0 +1,56 @@
+<html>
+<style>
+    .container {
+        max-width: 100vw;
+        max-height: 100vh;
+        width: 400px;
+        height: 400px;
+        background-color: rgb(240, 240, 240);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: grid;
+        grid-template-rows: 5fr 5fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .button {
+        background-color: white;
+        border: 10px solid rgb(240, 240, 240);
+        background-size: 90%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .y {
+        background-image: url('images/youtube.svg');
+    }
+    
+    .t {
+        background-image: url('images/twitter.svg');
+        background-size: 80%;
+    }
+    
+    .g {
+        background-image: url('images/google.svg');
+        background-size: 80%;
+    }
+</style>
+
+<body>
+    <div class="container ">
+        <div onclick="youtube()" class="button y"></div>
+        <div class="button t"></div>
+        <div class="button g"></div>
+        <div class="button"> gmail</div>
+    </div>
+</body>
+<script>
+    function youtube() {
+        window.location.href = "https://www.youtube.com/"
+    }
+</script>
+
+</html>
