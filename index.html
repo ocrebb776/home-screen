@@ -93,11 +93,16 @@
         location.href = 'https://www.google.com/search?q=' + query.replace('+', '%2B%')
     }
 
+    function focus(e) {
+        console.log(e.code)
+        document.getElementById("s").focus();
+    }
     $("#s").on('keyup', function(e) {
         if (e.key === 'Enter' || e.keyCode === 13) {
             search()
         }
     });
+    document.addEventListener('keypress', focus);
 </script>
 
 </html>
