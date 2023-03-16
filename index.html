@@ -5,7 +5,7 @@
         max-width: 100vw;
         max-height: 100vh;
         width: 400px;
-        height: 400px;
+        height: 600px;
         background-color: rgb(240, 240, 240);
         position: absolute;
         left: 50%;
@@ -13,7 +13,7 @@
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         display: grid;
-        grid-template-rows: 5fr 5fr;
+        grid-template-rows: 5fr 5fr 5fr;
         grid-template-columns: 1fr 1fr;
     }
     
@@ -42,7 +42,9 @@
     .e {
         background-image: url('images/email.svg');
     }
-    
+    .a {
+     background-image: url('https://yt3.googleusercontent.com/_DiGCcjGwJQAZ3zmlyB8TCYuA8O9tDJ9zGNysq5sR0rxwYb6SP5fW8cb3LbfcRwfui0m27oIhA=s900-c-k-c0x00ffffff-no-rj')   
+    }
     h1 {
         text-align: center;
         margin: auto;
@@ -81,13 +83,17 @@
         <div onclick="link('twitter')" class="button t"></div>
         <div onclick="link('google')" class="button g"></div>
         <div onclick="link('gmail')" class="button e"> </div>
+                <div onclick="link2('https://aternos.org/servers/')" class="button a"></div>
+        <div onclick="link('gmail')" class="button e"> </div>
     </div>
 </body>
 <script>
     function link(site) {
         window.location.href = `https://www.${site}.com/`
     }
-
+function link2(link){
+    window.location.href = link}
+    
     function search() {
         let query = document.getElementById('s').value
         location.href = 'https://www.google.com/search?q=' + query.replace('+', '%2B%')
