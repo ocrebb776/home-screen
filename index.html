@@ -14,156 +14,126 @@
     <style>
         html,
         body {
-            margin: 0px;
             font-family: 'Futura Md BT';
             overflow: hidden;
-            background: url(IMG_1201.jpg);
+            margin: 0px;
+            background-color: black;
+            background: url("IMG_1201.jpg");
             background-position: center;
-
+            background-size: cover;
         }
 
-        .top {
 
-
-
-            box-shadow: 0px 0px 10px 0px black;
-
-
-
-            width: 100vw;
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        @media screen and (max-width: 992px) {
-            .top {
-                padding: 0px;
-
-            }
-
-            .links {
-                background-color: #eee;
-                width: 100vw;
-                display: flex;
-                padding: 5px;
-                align-items: center;
-                justify-content: space-between;
-                flex-direction: column;
-            }
-
-            .cont {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                margin-top: 10vh;
-                text-align: center;
-
-
-            }
-
-            .g {
-                font-size: 100px;
-                font-family: 'Futura Md BT'
-            }
-
-            input,
-            button {
-                font-size: 40px;
-                border: none;
-                background-color: #eeeeee;
-                border-radius: 20px;
-                padding: 5px;
-                max-width: 90vw;
-                margin: auto;
-            }.button{
-                width: 90%;
-            }
+        .circle {
+            position: absolute;
+            width: 60vw;
+            max-width: 60vh;
+            height: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
         }
-
-        @media screen and (min-width: 992px) {
-            .top {
-
-                position: fixed;
-
-            }
-
-            .links {
-                background-color: #fef;
-                width: 100%;
-                display: flex;
-                padding: 5px;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                align-items: center;
-                justify-content: space-around;
-
-
-            }
-
-            .cont {
-
-                height: calc(100vh);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-
-                width: fit-content;
-                margin: auto;
-                padding-left: 40px;
-                padding-right: 40px;
-
-
-
-            }
-
-            .g {
-                font-size: 200px;
-                font-family: 'Futura Md BT'
-            }
-
-            input,
-            button {
-                font-size: 40px;
-                border: none;
-                background-color: #fff;
-                border-radius: 20px;
-                padding: 5px;
-            }.button{
-                width: 15%;
-            }
-        }
-
 
         .button {
-            display: inline;
-            background-color: white;
-            padding: 10px;
-            margin: 5px;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(0, 0, 0);
+            color: aliceblue;
+            padding: 30px;
+            border-radius: 2220px;
+            text-align: center;
+            display: grid;
+            grid-template-rows: 2fr 1fr;
+            box-shadow: 0px 0px 10px 2px red;
+        }
+
+        .button:hover {
+            scale: 1.1;
+        }
+
+        .button:active {
+            scale: 1;
+
+            box-shadow: 0px 0px 10px 2px rgb(255, 82, 82);
+        }
+
+        i {
+            font-size: 30px;
+        }
+
+        .links {
+            width: 60vw;
+            max-width: 60vh;
+        }
+
+        .srch {
+            position: absolute;
+            width: 60vw;
+            max-width: 60vh;
+            height: 50px;
             display: flex;
-            justify-content: space-around;
-            
-            font-size: 20px;
-            box-shadow: 0px 0px 10px 0px black;
+            justify-content: center;
+            align-items: center;
+            transform: translate(0, -25px);
+
+        }
+
+        .srch input,
+        .srch button {
+            background-color: rgb(0, 0, 0);
+            border: none;
+            color: aliceblue;
+
+            box-shadow: inset 5px 0px 10px 2px red;
+            border-radius: 10px 0px 0px 10px;
+            padding: 13px;
+            font-size: 15px;
+            margin: 0px;
+            text-align: center;
+        }
+
+        .srch button {
+            box-shadow: inset -5px 0px 10px 2px red;
+            border-radius: 0px 10px 10px 0px;
         }
     </style>
 </head>
 
 <body>
-    <div class="top">
+    <div class="wrapper">
         <div class="links">
+            <div class="srch">
+
+                <div><input name="search" id="s" placeholder="Search Google"><button onclick="search()">Search</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="circle">
             <div onclick="link('youtube')" class="button y"><i class="fa-brands fa-youtube"></i>Youtube</div>
+        </div>
+        <div class="circle">
             <div onclick="link('twitter')" class="button t"><i class="fa-brands fa-twitter"></i>Twitter</div>
-            <div onclick="link('photos.google')" class="button e"><i class="fa-solid fa-image"></i>Google Photos</div>
+        </div>
+        <div class="circle">
+            <div onclick="link('photos.google')" class="button e"><i class="fa-solid fa-image"></i>Google Photos
+            </div>
+        </div>
+        <div class="circle">
             <div onclick="link('gmail')" class="button e"><i class="fa-solid fa-envelope"></i>Gmail</div>
+        </div>
+        <div class="circle">
             <div onclick="link2('https://aternos.org/servers/')" class="button a"><i
                     class="fa-solid fa-server"></i>Server</div>
         </div>
     </div>
-
-    <div class="cont">
-
-        <div onclick="link('google')" class=" g"><i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i></div>
-        <div><input name="search" id="s" placeholder="Search Google"> <button onclick="search()">Search</button> </div>
     </div>
 </body>
 
@@ -191,4 +161,21 @@
         }
     });
     document.addEventListener('keypress', focus);
+
+    let ls = document.querySelectorAll(".circle")
+    let count = 0
+    let total = ls.length
+    let angle = 90
+    let btn
+    ls.forEach(el => {
+        angle += 360 * 1 / total
+        el.style.rotate = String(angle) + "deg"
+        btn = el.querySelector(".button")
+
+        btn.style.rotate = "-" + String(angle) + "deg"
+
+
+        count++
+    })
+
 </script>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.cdnfonts.com/css/futura-md-bt" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cf162e5e44.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        html,
+        body {
+            margin: 0px;
+            font-family: 'Futura Md BT';
+            overflow: hidden;
+            background: url(IMG_1201.jpg);
+            background-position: center;
+
+        }
+
+        .top {
+
+
+
+            box-shadow: 0px 0px 10px 0px black;
+
+
+
+            width: 100vw;
+        }
+
+        @media screen and (max-width: 992px) {
+            .top {
+                padding: 0px;
+
+            }
+
+            .links {
+                background-color: #eee;
+                width: 100vw;
+                display: flex;
+                padding: 5px;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column;
+            }
+
+            .cont {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin-top: 10vh;
+                text-align: center;
+
+
+            }
+
+            .g {
+                font-size: 100px;
+                font-family: 'Futura Md BT'
+            }
+
+            input,
+            button {
+                font-size: 40px;
+                border: none;
+                background-color: #eeeeee;
+                border-radius: 20px;
+                padding: 5px;
+                max-width: 90vw;
+                margin: auto;
+            }.button{
+                width: 90%;
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            .top {
+
+                position: fixed;
+
+            }
+
+            .links {
+                background-color: #fef;
+                width: 100%;
+                display: flex;
+                padding: 5px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                align-items: center;
+                justify-content: space-around;
+
+
+            }
+
+            .cont {
+
+                height: calc(100vh);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                width: fit-content;
+                margin: auto;
+                padding-left: 40px;
+                padding-right: 40px;
+
+
+
+            }
+
+            .g {
+                font-size: 200px;
+                font-family: 'Futura Md BT'
+            }
+
+            input,
+            button {
+                font-size: 40px;
+                border: none;
+                background-color: #fff;
+                border-radius: 20px;
+                padding: 5px;
+            }.button{
+                width: 15%;
+            }
+        }
+
+
+        .button {
+            display: inline;
+            background-color: white;
+            padding: 10px;
+            margin: 5px;
+            display: flex;
+            justify-content: space-around;
+            
+            font-size: 20px;
+            box-shadow: 0px 0px 10px 0px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="links">
+            <div onclick="link('youtube')" class="button y"><i class="fa-brands fa-youtube"></i>Youtube</div>
+            <div onclick="link('twitter')" class="button t"><i class="fa-brands fa-twitter"></i>Twitter</div>
+            <div onclick="link('photos.google')" class="button e"><i class="fa-solid fa-image"></i>Google Photos</div>
+            <div onclick="link('gmail')" class="button e"><i class="fa-solid fa-envelope"></i>Gmail</div>
+            <div onclick="link2('https://aternos.org/servers/')" class="button a"><i
+                    class="fa-solid fa-server"></i>Server</div>
+        </div>
+    </div>
+
+    <div class="cont">
+
+        <div onclick="link('google')" class=" g"><i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i></div>
+        <div><input name="search" id="s" placeholder="Search Google"> <button onclick="search()">Search</button> </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function link(site) {
+        window.location.href = `https://www.${site}.com/`
+    }
+    function link2(link) {
+        window.location.href = link
+    }
+
+    function search() {
+        let query = document.getElementById('s').value
+        location.href = 'https://www.google.com/search?q=' + query.replace('+', '%2B%')
+    }
+
+    function focus(e) {
+        console.log(e.code)
+        document.getElementById("s").focus();
+    }
+    $("#s").on('keyup', function (e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            search()
+        }
+    });
+    document.addEventListener('keypress', focus);
+</script>
