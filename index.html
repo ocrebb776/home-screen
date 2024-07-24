@@ -24,10 +24,9 @@
             font-family: 'Futura Md BT';
             overflow: hidden;
             margin: 0px;
-            background-color: black;
             background: url("IMG_1201.jpg");
-            background-position: center;
-            background-size: auto
+            ;
+
         }
 
 
@@ -136,6 +135,17 @@
 
 </html>
 <script>
+    let gaasdf = ""
+    dgs = Math.random()
+    console.log(dgs)
+    if (dgs > 0.5) {
+        gaasdf = 2
+    }
+    document.querySelector("style").innerHTML += `html,body{
+    background: url("IMG_1201${gaasdf}.jpg");            background-color: black;
+            background-position: center;
+            background-size: cover
+}`
     function link(site) {
         window.location.href = `https://www.${site}.com/`
     }
