@@ -12,6 +12,13 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
+        /* * {
+            border: 1px solid green;
+        } */
+        :root {
+            --boxs--: #000000Fe;
+        }
+
         html,
         body {
             font-family: 'Futura Md BT';
@@ -20,28 +27,20 @@
             background-color: black;
             background: url("IMG_1201.jpg");
             background-position: center;
-            background-size: cover;
+            background-size: auto
         }
 
 
-        .wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
 
         .circle {
-            position: absolute;
-            width: 60vw;
-            max-width: 60vh;
+            width: 0px;
             height: 0px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            position: absolute;
         }
 
+
         .button {
+            position: absolute;
             width: 50px;
             height: 50px;
             background-color: rgb(0, 0, 0);
@@ -51,37 +50,34 @@
             text-align: center;
             display: grid;
             grid-template-rows: 2fr 1fr;
-            box-shadow: 0px 0px 10px 2px rgb(255, 85, 0);
+            box-shadow: 0px 0px 10px 2px var(--boxs--);
+
         }
 
         .button:hover {
             scale: 1.1;
         }
 
-        .button:active {
-            scale: 1;
 
-            box-shadow: 0px 0px 10px 2px rgb(255, 82, 82);
-        }
 
         i {
             font-size: 30px;
         }
 
-        .links {
-            width: 60vw;
-            max-width: 60vh;
-        }
 
         .srch {
             position: absolute;
-            width: 60vw;
-            max-width: 60vh;
-            height: 50px;
+            height: 90vw;
+            max-height: 90vh;
+            width: 90vh;
+            max-width: 90vw;
+            border-radius: 189076987px;
             display: flex;
             justify-content: center;
             align-items: center;
             transform: translate(0, -25px);
+            background-color: rgba(0, 0, 0, 0.24);
+            box-shadow: inset 0px 0px 100px 5px #000000Fe, 0px 0px 100px 5px #0000005d;
 
         }
 
@@ -91,7 +87,8 @@
             border: none;
             color: aliceblue;
 
-            box-shadow: inset 5px 0px 10px 2px rgb(255, 85, 0);
+            box-shadow: inset 5px 0px 10px 2px var(--boxs--);
+            ;
             border-radius: 10px 0px 0px 10px;
             padding: 13px;
             font-size: 15px;
@@ -100,56 +97,41 @@
         }
 
         .srch button {
-            box-shadow: inset -5px 0px 10px 2px rgb(255, 85, 0);
+            box-shadow: inset -5px 0px 10px 2px var(--boxs--);
+            ;
             border-radius: 0px 10px 10px 0px;
+        }
+
+        .srch button:hover {
+            scale: 0.95;
+        }
+
+        img {
+            height: 30px;
+
+        }
+
+        .button:active,
+        .srch input:focus,
+        .srch button:active {
+            scale: 1;
+
+            box-shadow: 0px 0px 10px 2px rgb(255, 82, 82);
         }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="links">
-            <div class="srch">
 
-                <div><input name="search" id="s" placeholder="Search Google"><button onclick="search()">Search</button>
-                </div>
-            </div>
-
-        </div>
-        <div class="circle">
-            <div onclick="link('youtube')" class="button y"><i class="fa-brands fa-youtube"></i>Youtube</div>
-        </div>
-        <div class="circle">
-            <div onclick="link('twitter')" class="button t"><i class="fa-brands fa-twitter"></i>Twitter</div>
-        </div>
-        <div class="circle">
-            <div onclick="link('photos.google')" class="button e"><i class="fa-solid fa-image"></i>Google Photos
-            </div>
-        </div>
-        <div class="circle">
-            <div onclick="link('gmail')" class="button e"><i class="fa-solid fa-envelope"></i>Gmail</div>
-        </div>
-        <div class="circle">
-            <div onclick="link2('https://aternos.org/servers/')" class="button a"><i
-                    class="fa-solid fa-server"></i>Server</div>
-        </div>
-        <div class="circle">
-            <div onclick="link2('https://github.com/')" class="button a">GITHUB</div>
-        </div>
-        <div class="circle">
-            <div class="button a"></div>
-        </div>
-        <div class="circle">
-            <div class="button a"></div>
-        </div>
-        <div class="circle">
-            <div class="button a"></div>
-        </div>
-        <div class="circle">
-            <div class="button a"></div>
+    <div class="srch">
+        <div><input name="search" id="s" placeholder="Search Google"><button onclick="search()">Search</button>
         </div>
     </div>
+
+
+    <div class="links">
     </div>
+
 </body>
 
 </html>
@@ -177,20 +159,66 @@
     });
     document.addEventListener('keypress', focus);
 
-    let ls = document.querySelectorAll(".circle")
-    let count = 0
-    let total = ls.length
-    let angle = 90
-    let btn
-    ls.forEach(el => {
-        angle += 360 * 1 / total
-        el.style.rotate = String(angle) + "deg"
-        btn = el.querySelector(".button")
-
-        btn.style.rotate = "-" + String(angle) + "deg"
 
 
-        count++
+    function getico(url) {
+        url = `https://s2.googleusercontent.com/s2/favicons?domain_url=${url}`
+        return url
+    }
+    let websites = [
+        ["youtube", "https://www.youtube.com/"],
+        ["", "https://x.com/"],
+        ["Google Photos", "https://photos.google.com/"],
+        ["Gmail", "https://mail.google.com/mail/u/0/"],
+        ["GitHub", "https://github.com/"], ["Icloud", "https://icloud.com"]
+
+
+
+    ]
+    websites.forEach(ela => {
+        let links = document.querySelector(".links")
+        console.log(ela)
+        links.innerHTML += `
+<div class="circle">
+                <div class="button a" onclick="link2('${ela[1]}')"><img
+                        src="${getico(ela[1])}">
+                        ${ela[0]}</div>
+                        </div>
+ `
     })
+
+    let ls = document.querySelectorAll(".circle")
+
+
+    let srch = document.querySelector(".srch")
+    srch.style.transform = `translate(-${srch.offsetWidth / 2}px,-15px)`
+    let loop = function () {
+        let total = ls.length
+        let angle = 0
+        let count = 0
+        let y = window.innerHeight * 0.9
+        let x = window.innerWidth * 0.9
+        let length = 0
+        if (x > y) {
+            length = y / 2
+        } else {
+            length = x / 2
+        }
+        console.log(length)
+        ls.forEach(el => {
+            angle += 360 * 1 / total
+            let ydif = Math.sin(angle * (3.14159 / 180)) * length
+            let xdif = Math.cos(angle * (3.14159 / 180)) * length
+            el.style.transform = `translate(${xdif + window.innerWidth / 2}px,${ydif + window.innerHeight / 2}px)`
+            let btn = el.querySelector(".button")
+            btn.style.transform = `translate(-${btn.offsetWidth / 2}px,-${btn.offsetHeight / 2}px)`
+
+            count++
+        })
+        srch.style.transform = `translate(${(window.innerWidth / 2) - srch.offsetWidth / 2}px,${(window.innerHeight / 2) - srch.offsetHeight / 2}px)`
+
+    }
+    loop()
+    setInterval(loop, 500)
 
 </script>
